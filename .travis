@@ -9,3 +9,9 @@ script:
   - echo localhost > inventory
   - ansible-playbook --syntax-check -i inventory test.yml
   - ansible-playbook -i inventory test.yml --connection=local --sudo
+  - [ -L /etc/munin/plugins/uptime ]
+  - [ `readlink /etc/munin/plugins/uptime ` = "/usr/share/munin/plugins/uptime" ]
+  - [ -L /etc/munin/plugins/if_eth1 ]
+  - [ `readlink /etc/munin/plugins/if_eth1 ` = "/usr/share/munin/plugins/if_" ]
+  - [ -L /etc/munin/plugins/ps_test ]
+  - [ `readlink /etc/munin/plugins/ps_test ` = "/usr/share/munin/plugins/ps_" ]
