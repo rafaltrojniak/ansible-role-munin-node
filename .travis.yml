@@ -1,11 +1,14 @@
 ---
 language: python
 python: "2.7"
+env:
+  - SITE=test1.yml
+  - SITE=test2.yml
 before_install:
- - sudo apt-get update -qq
+  - sudo apt-get update -qq
 install:
   - pip install ansible==1.5.0
 script:
   - echo localhost > inventory
   - ansible-playbook --syntax-check -i inventory test.yml
-  - ansible-playbook -i inventory test.yml --connection=local --sudo
+  - ansible-playbook -i inventory $SITE --connection=local --sudo

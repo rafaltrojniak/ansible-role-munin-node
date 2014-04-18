@@ -1,6 +1,7 @@
 ---
 - hosts: all
   vars_files:
+    - 'vars/main.yml'
     - 'vars/test.yml'
   tasks:
     - include: 'tasks/main.yml'
