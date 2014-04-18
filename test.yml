@@ -2,8 +2,6 @@
 - hosts: all
   vars_files:
     - 'vars/test.yml'
-  roles:
-    - jnv.debian-backports
   tasks:
     - include: 'tasks/main.yml'
   handlers:
